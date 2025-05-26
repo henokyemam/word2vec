@@ -253,14 +253,15 @@ if __name__ == "__main__":
     # Example usage - you can test with your own text file
     
     # Create sample data for testing if no file is available
-    sample_text = [
-        "The quick brown fox jumps over the lazy dog.",
-        "Word2Vec learns word embeddings from large text corpora.",
-        "Natural language processing is a fascinating field!",
-        "Machine learning algorithms can understand text patterns.",
-        "This is a simple example for educational purposes."
-    ]
-    
+    # sample_text = [
+    #     "The quick brown fox jumps over the lazy dog.",
+    #     "Word2Vec learns word embeddings from large text corpora.",
+    #     "Natural language processing is a fascinating field!",
+    #     "Machine learning algorithms can understand text patterns.",
+    #     "This is a simple example for educational purposes."
+    # ]
+    path = '/Users/henokyemam/Desktop/word2vec/Data/wikitext2_test.txt'
+    sample_text = load_sample_sentences(path, num_sentences=5)
     print("Testing SimpleTextProcessor with sample data...")
     
     # Initialize processor
