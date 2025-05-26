@@ -422,26 +422,27 @@ if __name__ == "__main__":
     vocab.build_from_sentences(sample_sentences)
     
     # Test subsampling with different thresholds
-    for threshold in [1e-3, 1e-4, 1e-2]:
-        print(f"\n{'#'*80}")
-        print(f"TESTING WITH THRESHOLD = {threshold}")
-        print(f"{'#'*80}")
-        
-        # Create subsampler
-        subsampler = SimpleSubSampler(vocab, threshold)
-        
-        # Show probabilities
-        print_subsampling_probabilities(subsampler, top_n=15)
-        
-        # Demonstrate on sample sentences
-        print_subsampling_demo(subsampler, sample_sentences, num_demos=3, num_runs=3)
-        
-        # Analyze effects
-        id_sentences = convert_sentences_to_ids(sample_sentences, vocab)
-        analyze_subsampling_effects(subsampler, id_sentences, num_trials=20)
-        
-        # Compare with/without subsampling
-        compare_with_without_subsampling(vocab, sample_sentences, threshold)
+    threshold=1e-3
+    # for threshold in [1e-3, 1e-4, 1e-2]:
+    print(f"\n{'#'*80}")
+    print(f"TESTING WITH THRESHOLD = {threshold}")
+    print(f"{'#'*80}")
+    
+    # Create subsampler
+    subsampler = SimpleSubSampler(vocab, threshold)
+    
+    # Show probabilities
+    print_subsampling_probabilities(subsampler, top_n=15)
+    
+    # Demonstrate on sample sentences
+    print_subsampling_demo(subsampler, sample_sentences, num_demos=3, num_runs=3)
+    
+    # Analyze effects
+    id_sentences = convert_sentences_to_ids(sample_sentences, vocab)
+    analyze_subsampling_effects(subsampler, id_sentences, num_trials=20)
+    
+    # Compare with/without subsampling
+    compare_with_without_subsampling(vocab, sample_sentences, threshold)
     
     print(f"\n{'='*60}")
     print("SimpleSubSampler testing complete!")
